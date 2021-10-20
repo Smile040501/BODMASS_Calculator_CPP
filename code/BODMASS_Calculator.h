@@ -1,9 +1,9 @@
 #ifndef _BODMASS_CALCULATOR_
 #define _BODMASS_CALCULATOR_
 
-#include<string>
-#include<map>
-#include<utility>
+#include <map>
+#include <string>
+#include <utility>
 
 /**
 		+		: Addition
@@ -20,29 +20,28 @@
  */
 
 class BODMASS_Calculator {
-private:
+   private:
     std::string expr;
-	std::map<std::string, std::pair<int, int>> priorityTable;
+    std::map<std::string, std::pair<int, int>> priorityTable;
     std::map<int, std::string> singleStringMap;
-	std::map<int, std::string> postfixMap;
-	
+    std::map<int, std::string> postfixMap;
+
     bool checkUnwantedOperatorOperand();
     bool checkCorrectOperatorUse();
-	void modifyExpression();
+    void modifyExpression();
     void createPriorityTable();
     void createSingleStringMap();
     int inStackPrecedence(std::string op);
     int outStackPrecedence(std::string op);
-    
-public:
+
+   public:
     BODMASS_Calculator(std::string expr);
-    
+
     ~BODMASS_Calculator();
-    
+
     bool areBracketsMatching();
     std::string postfix();
     double value();
-
 };
 
-#endif // _BODMASS_CALCULATOR_
+#endif  // _BODMASS_CALCULATOR_
